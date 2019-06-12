@@ -25,31 +25,53 @@ class LoginViewController: UIViewController {
             passwordTF.rightViewMode = .always
         }
     }
+
+    var allFieldsAreValid: Bool = false {
+        didSet{
+            continueButton.isEnabled = allFieldsAreValid
+        }
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         passwordErrorMsg.text = HGErrorMessage.Strings.errorPassword
         emailErrorMsg.text = HGErrorMessage.Strings.errorEmail
+        addHelpButton()
     }
     
-}
-
-extension LoginViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField)
+    @IBAction func continuePressed(_ sender: Any)
     {
-        switch textField.tag
+        if allFieldsAreValid
         {
-            case TextFieldType.Email:
-                print("Begin Email")
-            case TextFieldType.Password:
-                print("Begin Password")
-            default:
-                print("Nothing")
+            print("All Valid")
         }
     }
     
+    private func addHelpButton()
+    {
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "help"), style: .plain, target: self, action: #selector(helpButtonPressed))
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    private func updateFields()
+    {
+        allFieldsAreValid = passwordTF.valid && emailTF.valid
+    }
+    
+    @objc private func helpButtonPressed()
+    {
+       let alertController = UIAlertController(title: nil, message: "Not available", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+        
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         switch textField.tag
@@ -86,12 +108,30 @@ extension LoginViewController: UITextFieldDelegate {
             {
                 case TextFieldType.Email:
                
-                    emailErrorMsg.isHidden = HGValidator.shared.isValidEmail(email: validText) ? true : false
-                
-                case TextFieldType.Password:
+                    if HGValidator.shared.isValidEmail(email: validText)
+                    {
+                        emailErrorMsg.isHidden = true
+                        emailTF.valid = true
+                    }
+                    else
+                    {
+                        emailErrorMsg.isHidden = false
+                        emailTF.valid = false
+                    }
                     
-                    passwordErrorMsg.isHidden = HGValidator.shared.isValidPassword(password: validText) ? true : false
-                
+                case TextFieldType.Password:
+
+                    if HGValidator.shared.isValidPassword(password: validText)
+                    {
+                        passwordErrorMsg.isHidden = true
+                        passwordTF.valid = true
+                    }
+                    else
+                    {
+                        passwordErrorMsg.isHidden = false
+                        passwordTF.valid = false
+                    }
+
                 default:
                     print("Default")
             }
@@ -101,5 +141,6 @@ extension LoginViewController: UITextFieldDelegate {
             field.isHidden = false;
             errorMessageLabel.text = HGErrorMessage.Strings.errorEmptyField
         }
+        updateFields()
     }
 }

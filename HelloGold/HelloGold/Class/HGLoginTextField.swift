@@ -10,6 +10,8 @@ import UIKit
 
 class HGLoginTextField: UITextField {
     
+    public var valid: Bool = false
+    
     func eyes(open: Bool) -> UIButton
     {
         if open
