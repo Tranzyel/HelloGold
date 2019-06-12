@@ -95,12 +95,11 @@ extension LoginViewController: UITextFieldDelegate {
                 default:
                     print("Default")
             }
-            errorMessageLabel.text = errorMessage
         }
         else
         {
             field.isHidden = false;
-            errorMessageLabel.text = errorMessage
+            errorMessageLabel.text = HGErrorMessage.Strings.errorEmptyField
         }
     }
 }

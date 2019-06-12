@@ -29,7 +29,7 @@ class HGValidator: NSObject {
     
     public func isValidPassword(password: String) -> Bool
     {
-        let regexPattern = "^(?=.*\\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$"
+        let regexPattern = "^.{8,}$"
         return matchesRegex(forRegex: regexPattern, inputText: password)
     }
     
