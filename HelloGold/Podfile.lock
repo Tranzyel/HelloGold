@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.8.2)
+  - ObjectMapper (3.5.0)
+  - PromiseKit (6.8.5):
+    - PromiseKit/CorePromise (= 6.8.5)
+    - PromiseKit/Foundation (= 6.8.5)
+    - PromiseKit/UIKit (= 6.8.5)
+  - PromiseKit/CorePromise (6.8.5)
+  - PromiseKit/Foundation (6.8.5):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.8.5):
+    - PromiseKit/CorePromise
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - ObjectMapper (~> 3.5)
+  - PromiseKit (~> 6.8)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ObjectMapper
+    - PromiseKit
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  PromiseKit: 9616b0afef31eae56ab9ce044c8ec2b8612a15cd
+
+PODFILE CHECKSUM: 298945ac8342721995a3fe2ea1d48a3915ab2abe
+
+COCOAPODS: 1.6.1

@@ -4,6 +4,8 @@ platform :ios, '10.0'
 use_frameworks!
 
 target 'HelloGold' do
-    pod 'AlamofireObjectMapper', '~> 6.0'
+    pod 'Alamofire', '~> 4.7'
+    pod 'ObjectMapper', '~> 3.5'
+    pod 'PromiseKit', '~> 6.8'
 end
 

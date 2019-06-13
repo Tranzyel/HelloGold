@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailErrorMsg: UILabel!
     @IBOutlet weak var passwordErrorMsg: UILabel!
-    @IBOutlet weak var emailTF: HGLoginTextField!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var emailTF: HGLoginTextField!
     @IBOutlet weak var passwordTF: HGLoginTextField! {
         didSet {
             passwordTF.rightView = passwordTF.eyes(open: false)
@@ -26,8 +26,10 @@ class LoginViewController: UIViewController {
         }
     }
 
-    var allFieldsAreValid: Bool = false {
-        didSet{
+    var allFieldsAreValid: Bool = false
+    {
+        didSet
+        {
             continueButton.isEnabled = allFieldsAreValid
         }
     }
@@ -35,6 +37,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        title = "Create Account"
+        
         passwordErrorMsg.text = HGErrorMessage.Strings.errorPassword
         emailErrorMsg.text = HGErrorMessage.Strings.errorEmail
         addHelpButton()
@@ -44,7 +49,8 @@ class LoginViewController: UIViewController {
     {
         if allFieldsAreValid
         {
-            print("All Valid")
+            let controller = DashboardViewController()
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
     
@@ -61,7 +67,7 @@ class LoginViewController: UIViewController {
     
     @objc private func helpButtonPressed()
     {
-       let alertController = UIAlertController(title: nil, message: "Not available", preferredStyle: .alert)
+        let alertController = UIAlertController(title: nil, message: "Not available", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         
@@ -96,6 +102,7 @@ extension LoginViewController: UITextFieldDelegate {
             default:
                 print("Nothing")
         }
+        
         textField.resignFirstResponder()
         return true
     }
@@ -112,6 +119,7 @@ extension LoginViewController: UITextFieldDelegate {
                     {
                         emailErrorMsg.isHidden = true
                         emailTF.valid = true
+                        UserData.shared.userEmail = validText
                     }
                     else
                     {
