@@ -30,13 +30,16 @@ class LocalStorage: NSObject {
 
     private override init(){}
 
-    public func saveHistoricalSpotPrice(_ prices: SpotPrices)
+    public func saveHistoricalSpotPrice(_ prices: Array<Any>?)
     {
         do
         {
-            let encodedData = try NSKeyedArchiver.archivedData(withRootObject: prices, requiringSecureCoding: false)
-            UserDefaults.standard.set(encodedData, forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey)
-            UserDefaults.standard.synchronize()
+            if let array = prices
+            {
+                let encodedData = try NSKeyedArchiver.archivedData(withRootObject: array, requiringSecureCoding: false)
+                UserDefaults.standard.set(encodedData, forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey)
+                UserDefaults.standard.synchronize()
+            }
         }
         catch
         {
@@ -44,8 +47,27 @@ class LocalStorage: NSObject {
         }
     }
     
+    public func loadHistoricalSpotPrice() -> Array<SpotPriceModel>
+    {
+        do
+        {
+            let data = UserDefaults.standard.object(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey) as? Data
+            
+            if let savedData = data
+            {
+                guard let array = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? [SpotPriceModel] else
+                {
+                    return []
+                }
+                return array
+            }
+        }
+        return []
+    }
+    
     public func removeHistoricalSpotPrice()
     {
         UserDefaults.standard.removeObject(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey)
+        UserDefaults.standard.synchronize()
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
-    var historicalSpotPrice = SpotPrices.shared.loadHistoricalSpotPrice()
+    var historicalSpotPrice = LocalStorage.shared.loadHistoricalSpotPrice()
     
     override func viewDidLoad()
     {
@@ -23,8 +23,8 @@ class DashboardViewController: UIViewController {
         NetworkManager.shared.requestGoldPrice { (response, error) in
             if let spotPrice = response as? SpotPriceModel
             {
-                self.historicalSpotPrice.append(spotPrice)
-                SpotPrices.shared.saveHistoricalSpotPrice(self.historicalSpotPrice)
+                self.historicalSpotPrice.insert(spotPrice, at: 0)                
+                LocalStorage.shared.saveHistoricalSpotPrice(self.historicalSpotPrice)
             }
         }
     }
