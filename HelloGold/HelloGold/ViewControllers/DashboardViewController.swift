@@ -10,23 +10,22 @@ import UIKit
 
 class DashboardViewController: UIViewController {
 
-    override func viewDidLoad() {
+    var historicalSpotPrice = SpotPrices.shared.loadHistoricalSpotPrice()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
-        
-        NetworkManager.shared.registerUserData()
-
+        requestGoldPrice()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func requestGoldPrice()
+    {
+        NetworkManager.shared.requestGoldPrice { (response, error) in
+            if let spotPrice = response as? SpotPriceModel
+            {
+                self.historicalSpotPrice.append(spotPrice)
+                SpotPrices.shared.saveHistoricalSpotPrice(self.historicalSpotPrice)
+            }
+        }
     }
-    */
-
 }

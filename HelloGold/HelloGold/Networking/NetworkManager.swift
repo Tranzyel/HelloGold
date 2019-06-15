@@ -28,18 +28,32 @@ class NetworkManager: NSObject {
              "uuid": getUUID(),
              "data": randomString(length: 256),
              "tnc": true
-        ]
+            ]
         
         fetchData(methodURL: post_registerUserURL, params: params, httpMethod: .post, T: RegisterUserModel.self) { (response, error) in
             
-            let model = response as? RegisterUserModel
-            LocalStorage.shared.registerUserData = model
+            if let model = response as? RegisterUserModel
+            {
+                LocalStorage.shared.registerUserData = model
+            }
         }
     }
     
-    public func requestGoldPrice()
+    public func requestGoldPrice(completionHandler: @escaping (_ result: Any?, _ error: Error?) -> Void)
     {
-        
+        fetchData(methodURL: get_spotPrice, params: nil, httpMethod: .get, T: SpotPriceModel.self) { (response, error) in
+            
+            if let model = response as? SpotPriceModel
+            {
+                LocalStorage.shared.spotPriceData = model
+                completionHandler(model,nil)
+            }
+            
+            if let err = error
+            {
+                completionHandler(nil, err)
+            }
+        }
     }
     
     internal func fetchData<T: Mappable>(methodURL: String, params: [String: Any]?, httpMethod: HTTPMethod, T: T.Type, completionHandler: @escaping (_ result: Any?, _ error: Error?) -> Void)

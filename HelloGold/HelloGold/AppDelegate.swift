@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let loginController = LoginViewController()
+        let userLoggedIn = LocalStorage.shared.loggedIn
+        
+        let loginController = (userLoggedIn) ? DashboardViewController() : LoginViewController()
         let navController = UINavigationController(rootViewController: loginController)
         
         window = UIWindow(frame: UIScreen.main.bounds)

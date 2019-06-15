@@ -10,7 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    fileprivate struct TextFieldType {
+    fileprivate struct TextFieldType
+    {
         static let Email = 0
         static let Password = 1
     }
@@ -20,7 +21,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var emailTF: HGLoginTextField!
     @IBOutlet weak var passwordTF: HGLoginTextField! {
-        didSet {
+        didSet
+        {
             passwordTF.rightView = passwordTF.eyes(open: false)
             passwordTF.rightViewMode = .always
         }
@@ -50,6 +52,7 @@ class LoginViewController: UIViewController {
         if allFieldsAreValid
         {
             let controller = DashboardViewController()
+            LocalStorage.shared.loggedIn = true
             navigationController?.pushViewController(controller, animated: true)
         }
     }
