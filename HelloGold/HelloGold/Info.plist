@@ -37,5 +37,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Futura LT Bold.TTF</string>
+		<string>Futura LT Extra Bold.TTF</string>
+		<string>Futura LT Heavy.TTF</string>
+		<string>Futura LT Medium.TTF</string>
+	</array>
 </dict>
 </plist>

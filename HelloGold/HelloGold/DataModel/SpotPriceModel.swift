@@ -35,8 +35,8 @@ class SpotPriceModel: NSObject,NSCoding,Mappable  {
         spotPrice <- map["data.spot_price"]
         timeStamp <- (map["timestamp"], dateTransform)
         
-        let convertedDate = HGDateFormatter.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Date, date: timeStamp ?? NSDate() as Date)
-        let convertedTime = HGDateFormatter.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Time, date: timeStamp ?? NSDate() as Date)
+        let convertedDate = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Date, date: timeStamp ?? NSDate() as Date)
+        let convertedTime = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Time, date: timeStamp ?? NSDate() as Date)
         
         date      = convertedDate        
         time      = convertedTime

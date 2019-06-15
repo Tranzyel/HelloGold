@@ -12,7 +12,6 @@
 		F44E485822B0AF16007A591C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F44E485622B0AF16007A591C /* LaunchScreen.storyboard */; };
 		F44E486322B0B209007A591C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E486122B0B209007A591C /* LoginViewController.swift */; };
 		F44E486422B0B209007A591C /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F44E486222B0B209007A591C /* LoginViewController.xib */; };
-		F44E486722B0CBFE007A591C /* HGValidationMessageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E486622B0CBFE007A591C /* HGValidationMessageLabel.swift */; };
 		F44E486922B0DA6A007A591C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F44E486822B0DA6A007A591C /* Assets.xcassets */; };
 		F44E486D22B0DBB9007A591C /* HGLoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E486C22B0DBB9007A591C /* HGLoginTextField.swift */; };
 		F44E487222B0E6CE007A591C /* HGErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E487122B0E6CE007A591C /* HGErrorMessage.swift */; };
@@ -21,6 +20,20 @@
 		F44E487C22B10C63007A591C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E487B22B10C63007A591C /* NetworkManager.swift */; };
 		F44E487E22B10D3D007A591C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44E487D22B10D3D007A591C /* UserData.swift */; };
 		F4B0AD7A22B50EB600B4B1F0 /* HGDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD7922B50EB600B4B1F0 /* HGDateFormatter.swift */; };
+		F4B0AD7D22B5387E00B4B1F0 /* UserProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD7C22B5387E00B4B1F0 /* UserProfileHeaderView.swift */; };
+		F4B0AD8022B538D000B4B1F0 /* GoldPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD7E22B538D000B4B1F0 /* GoldPriceCell.swift */; };
+		F4B0AD8122B538D000B4B1F0 /* GoldPriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B0AD7F22B538D000B4B1F0 /* GoldPriceCell.xib */; };
+		F4B0AD8622B541A400B4B1F0 /* HGAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD8522B541A400B4B1F0 /* HGAppearance.swift */; };
+		F4B0AD9722B5432700B4B1F0 /* Futura LT Medium.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F4B0AD9322B5432700B4B1F0 /* Futura LT Medium.TTF */; };
+		F4B0AD9822B5432700B4B1F0 /* Futura LT Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F4B0AD9422B5432700B4B1F0 /* Futura LT Bold.TTF */; };
+		F4B0AD9922B5432700B4B1F0 /* Futura LT Extra Bold.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F4B0AD9522B5432700B4B1F0 /* Futura LT Extra Bold.TTF */; };
+		F4B0AD9A22B5432700B4B1F0 /* Futura LT Heavy.TTF in Resources */ = {isa = PBXBuildFile; fileRef = F4B0AD9622B5432700B4B1F0 /* Futura LT Heavy.TTF */; };
+		F4B0AD9D22B544F600B4B1F0 /* HGTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD9C22B544F600B4B1F0 /* HGTitleLabel.swift */; };
+		F4B0AD9F22B5450300B4B1F0 /* HGSubtitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0AD9E22B5450300B4B1F0 /* HGSubtitleLabel.swift */; };
+		F4B0ADA322B5518A00B4B1F0 /* UserProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B0ADA222B5518A00B4B1F0 /* UserProfileHeaderView.xib */; };
+		F4B0ADA522B5540400B4B1F0 /* GoldPriceTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0ADA422B5540400B4B1F0 /* GoldPriceTableHeaderView.swift */; };
+		F4B0ADA722B5540D00B4B1F0 /* GoldPriceTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4B0ADA622B5540D00B4B1F0 /* GoldPriceTableHeaderView.xib */; };
+		F4B0ADA922B558BE00B4B1F0 /* HGBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B0ADA822B558BE00B4B1F0 /* HGBackgroundView.swift */; };
 		F4D4DB4D22B213DD00D41BF8 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D4DB4B22B213DD00D41BF8 /* DashboardViewController.swift */; };
 		F4D4DB4E22B213DD00D41BF8 /* DashboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4D4DB4C22B213DD00D41BF8 /* DashboardViewController.xib */; };
 		F4D4DB5022B21B3700D41BF8 /* RegisterUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D4DB4F22B21B3700D41BF8 /* RegisterUserModel.swift */; };
@@ -40,7 +53,6 @@
 		F44E485922B0AF16007A591C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F44E486122B0B209007A591C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F44E486222B0B209007A591C /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		F44E486622B0CBFE007A591C /* HGValidationMessageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGValidationMessageLabel.swift; sourceTree = "<group>"; };
 		F44E486822B0DA6A007A591C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F44E486C22B0DBB9007A591C /* HGLoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGLoginTextField.swift; sourceTree = "<group>"; };
 		F44E487122B0E6CE007A591C /* HGErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGErrorMessage.swift; sourceTree = "<group>"; };
@@ -51,6 +63,20 @@
 		F44E488022B14A4D007A591C /* libAlamofire.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAlamofire.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44E488222B14C20007A591C /* libObjectMapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libObjectMapper.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B0AD7922B50EB600B4B1F0 /* HGDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGDateFormatter.swift; sourceTree = "<group>"; };
+		F4B0AD7C22B5387E00B4B1F0 /* UserProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeaderView.swift; sourceTree = "<group>"; };
+		F4B0AD7E22B538D000B4B1F0 /* GoldPriceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldPriceCell.swift; sourceTree = "<group>"; };
+		F4B0AD7F22B538D000B4B1F0 /* GoldPriceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoldPriceCell.xib; sourceTree = "<group>"; };
+		F4B0AD8522B541A400B4B1F0 /* HGAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGAppearance.swift; sourceTree = "<group>"; };
+		F4B0AD9322B5432700B4B1F0 /* Futura LT Medium.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura LT Medium.TTF"; sourceTree = "<group>"; };
+		F4B0AD9422B5432700B4B1F0 /* Futura LT Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura LT Bold.TTF"; sourceTree = "<group>"; };
+		F4B0AD9522B5432700B4B1F0 /* Futura LT Extra Bold.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura LT Extra Bold.TTF"; sourceTree = "<group>"; };
+		F4B0AD9622B5432700B4B1F0 /* Futura LT Heavy.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Futura LT Heavy.TTF"; sourceTree = "<group>"; };
+		F4B0AD9C22B544F600B4B1F0 /* HGTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGTitleLabel.swift; sourceTree = "<group>"; };
+		F4B0AD9E22B5450300B4B1F0 /* HGSubtitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGSubtitleLabel.swift; sourceTree = "<group>"; };
+		F4B0ADA222B5518A00B4B1F0 /* UserProfileHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileHeaderView.xib; sourceTree = "<group>"; };
+		F4B0ADA422B5540400B4B1F0 /* GoldPriceTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldPriceTableHeaderView.swift; sourceTree = "<group>"; };
+		F4B0ADA622B5540D00B4B1F0 /* GoldPriceTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoldPriceTableHeaderView.xib; sourceTree = "<group>"; };
+		F4B0ADA822B558BE00B4B1F0 /* HGBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HGBackgroundView.swift; sourceTree = "<group>"; };
 		F4D4DB4B22B213DD00D41BF8 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F4D4DB4C22B213DD00D41BF8 /* DashboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardViewController.xib; sourceTree = "<group>"; };
 		F4D4DB4F22B21B3700D41BF8 /* RegisterUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserModel.swift; sourceTree = "<group>"; };
@@ -114,28 +140,30 @@
 			isa = PBXGroup;
 			children = (
 				F44E484D22B0AF15007A591C /* AppDelegate.swift */,
+				F4B0AD8222B538DE00B4B1F0 /* Cells */,
+				F4B0AD7B22B5385D00B4B1F0 /* Views */,
 				F44E487F22B10D6D007A591C /* DataModel */,
 				F44E487A22B10C24007A591C /* Networking */,
 				F44E487722B0F50C007A591C /* ViewControllers */,
-				F44E486522B0CBD2007A591C /* Class */,
+				F44E486522B0CBD2007A591C /* NSObject */,
+				F4B0AD9122B542F100B4B1F0 /* Resources */,
 				F44E485622B0AF16007A591C /* LaunchScreen.storyboard */,
 				F44E485922B0AF16007A591C /* Info.plist */,
-				F44E486822B0DA6A007A591C /* Assets.xcassets */,
 			);
 			path = HelloGold;
 			sourceTree = "<group>";
 		};
-		F44E486522B0CBD2007A591C /* Class */ = {
+		F44E486522B0CBD2007A591C /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				F4B0AD8522B541A400B4B1F0 /* HGAppearance.swift */,
 				F44E487122B0E6CE007A591C /* HGErrorMessage.swift */,
 				F44E487522B0E849007A591C /* HGValidator.swift */,
-				F44E486622B0CBFE007A591C /* HGValidationMessageLabel.swift */,
 				F44E486C22B0DBB9007A591C /* HGLoginTextField.swift */,
 				F4D4DB5C22B3800000D41BF8 /* HGConstantKey.swift */,
 				F4B0AD7922B50EB600B4B1F0 /* HGDateFormatter.swift */,
 			);
-			path = Class;
+			path = NSObject;
 			sourceTree = "<group>";
 		};
 		F44E487722B0F50C007A591C /* ViewControllers */ = {
@@ -167,6 +195,73 @@
 				F4D4DB6022B3F05300D41BF8 /* SpotPrices.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		F4B0AD7B22B5385D00B4B1F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0ADA022B5450B00B4B1F0 /* Subclass */,
+				F4B0ADA122B550E700B4B1F0 /* UIView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F4B0AD8222B538DE00B4B1F0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD8322B538F100B4B1F0 /* TableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F4B0AD8322B538F100B4B1F0 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD7E22B538D000B4B1F0 /* GoldPriceCell.swift */,
+				F4B0AD7F22B538D000B4B1F0 /* GoldPriceCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		F4B0AD9122B542F100B4B1F0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD9222B5432700B4B1F0 /* Fonts */,
+				F44E486822B0DA6A007A591C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4B0AD9222B5432700B4B1F0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD9322B5432700B4B1F0 /* Futura LT Medium.TTF */,
+				F4B0AD9422B5432700B4B1F0 /* Futura LT Bold.TTF */,
+				F4B0AD9522B5432700B4B1F0 /* Futura LT Extra Bold.TTF */,
+				F4B0AD9622B5432700B4B1F0 /* Futura LT Heavy.TTF */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F4B0ADA022B5450B00B4B1F0 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD9C22B544F600B4B1F0 /* HGTitleLabel.swift */,
+				F4B0AD9E22B5450300B4B1F0 /* HGSubtitleLabel.swift */,
+				F4B0ADA822B558BE00B4B1F0 /* HGBackgroundView.swift */,
+			);
+			path = Subclass;
+			sourceTree = "<group>";
+		};
+		F4B0ADA122B550E700B4B1F0 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				F4B0AD7C22B5387E00B4B1F0 /* UserProfileHeaderView.swift */,
+				F4B0ADA222B5518A00B4B1F0 /* UserProfileHeaderView.xib */,
+				F4B0ADA422B5540400B4B1F0 /* GoldPriceTableHeaderView.swift */,
+				F4B0ADA622B5540D00B4B1F0 /* GoldPriceTableHeaderView.xib */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,11 +324,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B0ADA322B5518A00B4B1F0 /* UserProfileHeaderView.xib in Resources */,
+				F4B0AD9922B5432700B4B1F0 /* Futura LT Extra Bold.TTF in Resources */,
 				F44E485822B0AF16007A591C /* LaunchScreen.storyboard in Resources */,
 				F44E486922B0DA6A007A591C /* Assets.xcassets in Resources */,
 				F4D4DB4E22B213DD00D41BF8 /* DashboardViewController.xib in Resources */,
 				F44E487922B10256007A591C /* Podfile in Resources */,
+				F4B0ADA722B5540D00B4B1F0 /* GoldPriceTableHeaderView.xib in Resources */,
 				F44E486422B0B209007A591C /* LoginViewController.xib in Resources */,
+				F4B0AD8122B538D000B4B1F0 /* GoldPriceCell.xib in Resources */,
+				F4B0AD9A22B5432700B4B1F0 /* Futura LT Heavy.TTF in Resources */,
+				F4B0AD9822B5432700B4B1F0 /* Futura LT Bold.TTF in Resources */,
+				F4B0AD9722B5432700B4B1F0 /* Futura LT Medium.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,17 +399,23 @@
 			files = (
 				F4D4DB5222B26CD300D41BF8 /* LocalStorage.swift in Sources */,
 				F4D4DB5422B2899000D41BF8 /* SpotPriceModel.swift in Sources */,
-				F44E486722B0CBFE007A591C /* HGValidationMessageLabel.swift in Sources */,
+				F4B0AD9D22B544F600B4B1F0 /* HGTitleLabel.swift in Sources */,
 				F4D4DB6122B3F05300D41BF8 /* SpotPrices.swift in Sources */,
 				F4D4DB5D22B3800000D41BF8 /* HGConstantKey.swift in Sources */,
 				F4D4DB5022B21B3700D41BF8 /* RegisterUserModel.swift in Sources */,
 				F4B0AD7A22B50EB600B4B1F0 /* HGDateFormatter.swift in Sources */,
 				F4D4DB4D22B213DD00D41BF8 /* DashboardViewController.swift in Sources */,
+				F4B0AD8622B541A400B4B1F0 /* HGAppearance.swift in Sources */,
+				F4B0AD8022B538D000B4B1F0 /* GoldPriceCell.swift in Sources */,
 				F44E486322B0B209007A591C /* LoginViewController.swift in Sources */,
 				F44E487E22B10D3D007A591C /* UserData.swift in Sources */,
 				F44E487222B0E6CE007A591C /* HGErrorMessage.swift in Sources */,
+				F4B0AD9F22B5450300B4B1F0 /* HGSubtitleLabel.swift in Sources */,
+				F4B0ADA522B5540400B4B1F0 /* GoldPriceTableHeaderView.swift in Sources */,
 				F44E487C22B10C63007A591C /* NetworkManager.swift in Sources */,
+				F4B0AD7D22B5387E00B4B1F0 /* UserProfileHeaderView.swift in Sources */,
 				F44E487622B0E849007A591C /* HGValidator.swift in Sources */,
+				F4B0ADA922B558BE00B4B1F0 /* HGBackgroundView.swift in Sources */,
 				F44E486D22B0DBB9007A591C /* HGLoginTextField.swift in Sources */,
 				F44E484E22B0AF15007A591C /* AppDelegate.swift in Sources */,
 			);

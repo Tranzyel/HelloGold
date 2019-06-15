@@ -8,9 +8,9 @@
 
 import UIKit
 
-class HGDateFormatter {
+class HGDateHelper {
     
-    static let shared = HGDateFormatter()
+    static let shared = HGDateHelper()
     
     public func getDateValue(format: String, date: Date) -> String
     {
@@ -26,4 +26,5 @@ class HGDateFormatter {
         
         return customDateFormatter.string(from: date ?? Date())
     }
+    
 }
