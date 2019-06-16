@@ -10,6 +10,20 @@ import UIKit
 
 class UserProfileHeaderView: UIView {
 
+    @IBOutlet weak var email: HGSubtitleLabel!
+    @IBOutlet weak var accountNumber: HGSubtitleLabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        if let userData = LocalStorage.shared.loadUserData()
+        {
+            email.text = userData.userEmail
+            accountNumber.text = userData.account_number
+        }
+        
+    }
+    
     public class func loadNib() -> UIView
     {
         let nibName = String(describing: UserProfileHeaderView.self)

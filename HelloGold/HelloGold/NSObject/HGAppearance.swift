@@ -17,7 +17,6 @@ public class HGAppearance: NSObject {
         static let backgroundColor = UIColor.black
         static let black =  UIColor.black
         static let gray = UIColor(red:0.77, green:0.77, blue:0.77, alpha:1)
-        static let separatorGray = UIColor(red: 58/255.0, green: 58/255.0, blue: 58/255.0, alpha: 1)
         static let backgroundGray = UIColor(red: 23/255.0, green: 23/255.0, blue: 23/255.0, alpha: 1)
         static let yellow = UIColor(red:0.97, green:0.82, blue:0.27, alpha:1.0)
     }
@@ -40,6 +39,9 @@ public class HGAppearance: NSObject {
     func setupGenericAppearance()
     {
         HGBackgroundView.appearance().backgroundColor = Colors.backgroundGray
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = Colors.yellow
+        UINavigationBar.appearance().tintColor = Colors.black
     }
     
     func setupAppearanceLoginUI()

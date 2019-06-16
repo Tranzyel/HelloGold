@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBOutlet weak var emailErrorMsg: UILabel!
-    @IBOutlet weak var passwordErrorMsg: UILabel!
+    @IBOutlet weak var passwordErrorMsg: HGSubtitleLabel!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var emailTF: HGLoginTextField!
     @IBOutlet weak var passwordTF: HGLoginTextField! {
@@ -51,9 +51,32 @@ class LoginViewController: UIViewController {
     {
         if allFieldsAreValid
         {
-            let controller = DashboardViewController()
-            LocalStorage.shared.loggedIn = true
-            navigationController?.pushViewController(controller, animated: true)
+            NetworkManager.shared.registerUserData { (response, error) in
+                if (error != nil || response?.result == "error")
+                {
+                    self.showAlertMessage(message: HGErrorMessage.Strings.errorRegistration)
+
+                    /* Hacking , force success
+                    let controller = DashboardViewController()
+                    LocalStorage.shared.loggedIn = true
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    */
+                    return
+                }
+
+                
+                if let res = response
+                {
+                    let controller = DashboardViewController()
+                    LocalStorage.shared.saveUserData(res)
+                    LocalStorage.shared.loggedIn = true
+                    self.navigationController?.pushViewController(controller, animated: true)
+                }
+                else
+                {
+                    self.showAlertMessage(message: HGErrorMessage.Strings.errorRegistration)
+                }
+            }
         }
     }
     
@@ -70,7 +93,12 @@ class LoginViewController: UIViewController {
     
     @objc private func helpButtonPressed()
     {
-        let alertController = UIAlertController(title: nil, message: "Not available", preferredStyle: .alert)
+        showAlertMessage(message: "Not available")
+    }
+    
+    func showAlertMessage(message: String)
+    {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         
