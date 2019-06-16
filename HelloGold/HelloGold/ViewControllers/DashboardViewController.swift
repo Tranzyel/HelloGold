@@ -19,26 +19,52 @@ internal enum CellType: Int
 class DashboardViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var historicalSpotPrice = LocalStorage.shared.loadHistoricalSpotPrice()
+    var historicalSpotPrice: [SpotPriceModel] = []
+    var todaySpotPrice: SpotPriceModel?
     let goldPriceNib = UINib(nibName: String(describing: GoldPriceCell.self), bundle: nil)
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         requestGoldPrice()
+        addRefreshButton()
+        addTableViewHeader()
         tableView.register(goldPriceNib, forCellReuseIdentifier: GoldPriceTableViewCellIdentifier)
+        title = "Gold Price"
     }
 
-    func requestGoldPrice()
+    @objc func requestGoldPrice()
     {
         NetworkManager.shared.requestGoldPrice { (response, error) in
             if let spotPrice = response as? SpotPriceModel
             {
+                self.todaySpotPrice = spotPrice
+                self.historicalSpotPrice = LocalStorage.shared.loadHistoricalSpotPrice()
                 self.historicalSpotPrice.insert(spotPrice, at: 0)
                 LocalStorage.shared.saveHistoricalSpotPrice(self.historicalSpotPrice)
-                self.tableView.reloadData()
+                self.checkPriceDate()
             }
         }
+    }
+    
+    func addRefreshButton()
+    {
+        let refreshButton = UIBarButtonItem(image: UIImage(named: "refresh"), style: .plain, target: self, action: #selector(requestGoldPrice))
+        navigationItem.rightBarButtonItem = refreshButton
+    }
+    
+    func addTableViewHeader()
+    {
+        let headerView = UserProfileHeaderView.loadNib() as! UserProfileHeaderView
+        
+        tableView.tableHeaderView = headerView
+    }
+    
+    func checkPriceDate()
+    {
+        let todayDate = HGDateHelper.shared.getTodayDate()
+        historicalSpotPrice = historicalSpotPrice.filter{$0.date != todayDate}
+        self.tableView.reloadData()
     }
 }
 
@@ -51,7 +77,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         switch section
         {
             case CellType.todayGoldPrice.rawValue:
-                headerView.titleLbl.text = "Today Price"
+                headerView.titleLbl.text = "Today's Price"
             case CellType.pastGoldPrice.rawValue:
                 headerView.titleLbl.text = "Previous Price"
             default:
@@ -81,7 +107,12 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         switch section
         {
             case CellType.todayGoldPrice.rawValue:
-                return 1
+                
+                if todaySpotPrice != nil
+                {
+                    return 1
+                }
+                return 0
             case CellType.pastGoldPrice.rawValue:
                 return historicalSpotPrice.count
             default:
@@ -121,13 +152,14 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: GoldPriceTableViewCellIdentifier, for: indexPath) as! GoldPriceCell
         
-        let model = historicalSpotPrice[indexPath.row] as SpotPriceModel
-        
-        cell.buyPrice.text = "\(model.buyPrice ?? 0.0)"
-        cell.sellPrice.text = "\(model.sellPrice ?? 0.0)"
-        cell.spotPrice.text = "\(model.spotPrice ?? 0.0)"
-        cell.date.text = model.date
-        cell.time.text = model.time
+        if let model = todaySpotPrice
+        {
+            cell.buyPrice.text = "\(model.buyPrice ?? 0.0)"
+            cell.sellPrice.text = "\(model.sellPrice ?? 0.0)"
+            cell.spotPrice.text = "\(model.spotPrice ?? 0.0)"
+            cell.date.text = model.date
+            cell.time.text = model.time
+        }
         
         return cell
     }

@@ -18,13 +18,13 @@ class LocalStorage: NSObject {
     {
         set (newValue)
         {
-            UserDefaults.standard.set(newValue, forKey: HGConstantKey.UserDefaults.Key.UserLoggedInKey)
+            UserDefaults.standard.set(newValue, forKey: HGConstantKey.UserDefaults.Key.UserLoggedIn)
             UserDefaults.standard.synchronize()
         }
         
         get
         {
-            return UserDefaults.standard.bool(forKey: HGConstantKey.UserDefaults.Key.UserLoggedInKey)
+            return UserDefaults.standard.bool(forKey: HGConstantKey.UserDefaults.Key.UserLoggedIn)
         }
     }
 
@@ -37,7 +37,7 @@ class LocalStorage: NSObject {
             if let array = prices
             {
                 let encodedData = try NSKeyedArchiver.archivedData(withRootObject: array, requiringSecureCoding: false)
-                UserDefaults.standard.set(encodedData, forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey)
+                UserDefaults.standard.set(encodedData, forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistories)
                 UserDefaults.standard.synchronize()
             }
         }
@@ -51,7 +51,7 @@ class LocalStorage: NSObject {
     {
         do
         {
-            let data = UserDefaults.standard.object(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey) as? Data
+            let data = UserDefaults.standard.object(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistories) as? Data
             
             if let savedData = data
             {
@@ -67,7 +67,41 @@ class LocalStorage: NSObject {
     
     public func removeHistoricalSpotPrice()
     {
-        UserDefaults.standard.removeObject(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistoriesKey)
+        UserDefaults.standard.removeObject(forKey: HGConstantKey.UserDefaults.Key.SpotPriceHistories)
         UserDefaults.standard.synchronize()
+    }
+    
+    public func saveUserData(_ user: RegisterUserModel?)
+    {
+        do
+        {
+            if let userData = user
+            {
+                let encodedData = try NSKeyedArchiver.archivedData(withRootObject: userData, requiringSecureCoding: false)
+                UserDefaults.standard.set(encodedData, forKey: HGConstantKey.UserDefaults.Key.UserData)
+                UserDefaults.standard.synchronize()
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+    }
+    
+    public func loadUserData() -> RegisterUserModel?
+    {
+        do
+        {
+            let data = UserDefaults.standard.object(forKey: HGConstantKey.UserDefaults.Key.UserData) as? Data
+            
+            if let savedData = data
+            {
+                if let userData = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? RegisterUserModel
+                {
+                    return userData
+                }
+            }
+        }
+        return nil
     }
 }

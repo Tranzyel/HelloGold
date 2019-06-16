@@ -27,7 +27,7 @@ class SpotPriceModel: NSObject,NSCoding,Mappable  {
 
     func mapping(map: Map)
     {
-        let dateTransform = CustomDateFormatTransform(formatString: HGConstantKey.DateFormatterFormat.DateFormat.Default)
+        let dateTransform = CustomDateFormatTransform(formatString: HGConstantKey.DateFormatter.Format.Default)
         
         result    <- map["result"]
         buyPrice  <- map["data.buy"]
@@ -35,8 +35,8 @@ class SpotPriceModel: NSObject,NSCoding,Mappable  {
         spotPrice <- map["data.spot_price"]
         timeStamp <- (map["timestamp"], dateTransform)
         
-        let convertedDate = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Date, date: timeStamp ?? NSDate() as Date)
-        let convertedTime = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatterFormat.DateFormat.Time, date: timeStamp ?? NSDate() as Date)
+        let convertedDate = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatter.Format.Date, date: timeStamp ?? NSDate() as Date)
+        let convertedTime = HGDateHelper.shared.getDateValue(format: HGConstantKey.DateFormatter.Format.Time, date: timeStamp ?? NSDate() as Date)
         
         date      = convertedDate        
         time      = convertedTime

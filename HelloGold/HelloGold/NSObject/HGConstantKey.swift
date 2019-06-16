@@ -12,16 +12,18 @@ class HGConstantKey: NSObject {
 
     struct UserDefaults {
         struct Key {
-            static let SpotPriceHistoriesKey: String = "SpotPriceHistoriesKey"
-            static let UserLoggedInKey: String = "UserLoggedInKey"
+            static let SpotPriceHistories: String = "SpotPriceHistoriesKey"
+            static let UserLoggedIn: String = "UserLoggedInKey"
+            static let UserData: String = "UserDataKey"
         }
     }
 
-    struct DateFormatterFormat {
-        struct DateFormat {
+    struct DateFormatter {
+        struct Format {
             static let Default: String = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             static let Date: String = "yyyy-MM-dd"
             static let Time: String = "HH:mm:ss"
+            static let Current: String = "yyyy-MM-dd HH:mm:ssZ"
         }
     }
 }

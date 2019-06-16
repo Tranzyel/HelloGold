@@ -21,7 +21,7 @@ class NetworkManager: NSObject {
     
     private override init() {}
 
-    public func registerUserData()
+    public func registerUserData(completionHandler: @escaping (_ result: RegisterUserModel?, _ error: Error?) -> Void)
     {
         let params: [String: Any] =
             ["email": UserData.shared.userEmail ?? "",
@@ -35,6 +35,11 @@ class NetworkManager: NSObject {
             if let model = response as? RegisterUserModel
             {
                 LocalStorage.shared.registerUserData = model
+                completionHandler(model,nil)
+            }
+            else
+            {
+                completionHandler(nil,error)
             }
         }
     }

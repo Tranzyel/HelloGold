@@ -16,4 +16,5 @@ class UserData: NSObject {
     
     var userEmail: String?
     var userUUID: String?
+
 }
